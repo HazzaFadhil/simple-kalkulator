@@ -17,7 +17,10 @@
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
     <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
   <label>Hasil:</label>
-    <input type="text" id="hasil" disabled>
+    <input type="text" id="hasil" disabled><br><br>
+    <label>Reset:</label>
+    <input type="button" value="reset" onclick="resetCalculator()">
+
     <script>
       function ambilNilai()
       {
@@ -52,21 +55,38 @@
 
       function kurang()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        let nilai = ambilNilai();
+        prosesKurang = parseInt(nilai[0]) - parseInt(nilai[1]);
+        return printHasil(prosesKurang);
       }
 
       function kali()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+       let nilai = ambilNilai();
+        prosesKali = parseInt(nilai[0]) * parseInt(nilai[1]);
+        return printHasil(prosesKali);
       }
 
       function bagi()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+       let nilai = ambilNilai();
+        prosesBagi = parseInt(nilai[0]) / parseInt(nilai[1]);
+        return printHasil(prosesBagi);
       }
+
+      function resetCalculator()
+      {
+        document.getElementById('input1').value = '';
+        document.getElementById('input2').value = '';
+        document.getElementById('hasil').checked = false;
+        document.getElementById('tambah').checked = false;
+        document.getElementById('kurang').checked = false;
+        document.getElementById('kali').checked = false;
+        document.getElementById('bagi').checked = false;
+
+      }
+
+    
     </script>
 </body>
 </html>
