@@ -17,6 +17,7 @@
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
     <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br>
     <input type="radio" name="operator" id="modulus" onclick="modulus()">modulus<br>
+    <input type="radio" name="operator" id="pangkat" onclick="pangkat()">pangkat<br>
   <label>Hasil:</label>
     <input type="text" id="hasil" disabled><br><br>
     <label>Reset:</label>
@@ -79,7 +80,15 @@
       {
         let nilai = ambilNilai();
         prosesModulus = parseInt(nilai[0]) % parseInt(nilai[1]);
-        return parseInt(prosesModulus);
+        return printHasil(prosesModulus);
+
+      }
+
+      function pangkat()
+      {
+        let nilai = ambilNilai();
+        prosesPangkat = Math.pow(parseInt(nilai[0]), (nilai[1]));
+        return printHasil(prosesPangkat);
 
       }
 
@@ -87,12 +96,13 @@
       {
         document.getElementById('input1').value = '';
         document.getElementById('input2').value = '';
-        document.getElementById('hasil').checked = false;
+        document.getElementById('hasil').value = '';
         document.getElementById('tambah').checked = false;
         document.getElementById('kurang').checked = false;
         document.getElementById('kali').checked = false;
         document.getElementById('bagi').checked = false;
         document.getElementById('modulus').checked = false;
+        document.getElementById('pangkat').checked = false;
         
       }
 
