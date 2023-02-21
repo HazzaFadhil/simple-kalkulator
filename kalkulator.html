@@ -15,7 +15,8 @@
     <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
     <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
-    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
+    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br>
+    <input type="radio" name="operator" id="modulus" onclick="modulus()">modulus<br>
   <label>Hasil:</label>
     <input type="text" id="hasil" disabled><br><br>
     <label>Reset:</label>
@@ -74,6 +75,14 @@
         return printHasil(prosesBagi);
       }
 
+      function modulus()
+      {
+        let nilai = ambilNilai();
+        prosesModulus = parseInt(nilai[0]) % parseInt(nilai[1]);
+        return parseInt(prosesModulus);
+
+      }
+
       function resetCalculator()
       {
         document.getElementById('input1').value = '';
@@ -83,7 +92,8 @@
         document.getElementById('kurang').checked = false;
         document.getElementById('kali').checked = false;
         document.getElementById('bagi').checked = false;
-
+        document.getElementById('modulus').checked = false;
+        
       }
 
     
